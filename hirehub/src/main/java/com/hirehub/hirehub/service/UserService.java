@@ -1,9 +1,9 @@
 package com.hirehub.hirehub.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.hirehub.hirehub.entity.User;
 import com.hirehub.hirehub.repository.UserRepository;
@@ -24,5 +24,10 @@ public class UserService {
 		}
 		User savedUser = userRepository.save(user);
 		return savedUser;
+	}
+	
+	public List<User> getAllUser(){
+		
+		return userRepository.findAll();
 	}
 }
