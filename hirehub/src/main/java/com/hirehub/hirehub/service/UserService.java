@@ -3,6 +3,7 @@ package com.hirehub.hirehub.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.jspecify.annotations.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -64,4 +65,18 @@ public class UserService {
 		return existingUser;
 		
 	}
+	
+	public User loginUser(User user) {
+		Optional<User> existingUser = userRepository.findByEmail(user.getEmail());
+		
+		if(existingUser.isEmpty()) {
+			throw new IllegalArgumentException("Not Valid Cradentials");
+		}
+		if(!existingUser.get().getPassword().equals(user.getPassword())) {
+			throw new IllegalArgumentException("Not Valid Cradentials");
+		}
+		return existingUser.get();
+	}
+
+	
 }

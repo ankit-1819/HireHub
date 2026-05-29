@@ -60,4 +60,10 @@ public class UserController {
 		
 		return ResponseEntity.ok(userService.updateUser(id,user));
 	}
+	
+	@PostMapping("/user/login")
+	public ResponseEntity<User> loginUser(@RequestBody User user){
+			
+		return ResponseEntity.ok(userService.loginUser(user));
+	}
 }
