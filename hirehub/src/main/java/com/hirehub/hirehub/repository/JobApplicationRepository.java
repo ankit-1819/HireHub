@@ -12,7 +12,7 @@ public interface JobApplicationRepository extends JpaRepository<JobApplication,L
 
 	List<JobApplication> findByJobId(long jobId);
 	
-	Boolean existsByUserIdandJobId(long userId,long jobId);
+	Boolean existsByUserIdAndJobId(long userId,long jobId);
 	
 	/*
 	 * SELECT COUNT(*) > 0 FROM job_application WHERE user_id = ? AND job_id = ?

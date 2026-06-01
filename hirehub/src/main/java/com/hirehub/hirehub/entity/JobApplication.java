@@ -2,8 +2,12 @@ package com.hirehub.hirehub.entity;
 
 import java.time.LocalDate;
 
+import com.hirehub.hirehub.enums.ApplicationStatus;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,7 +21,9 @@ public class JobApplication {
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private long id;
 		private LocalDate applicationDate;
-		private String status;
+		
+		@Enumerated(EnumType.STRING)
+		private ApplicationStatus status ;
 		
 		@ManyToOne(fetch = FetchType.LAZY)
 		private Job job;
@@ -45,11 +51,11 @@ public class JobApplication {
 			this.applicationDate = applicationDate;
 		}
 
-		public String getStatus() {
+		public ApplicationStatus getStatus() {
 			return status;
 		}
 
-		public void setStatus(String status) {
+		public void setStatus(ApplicationStatus status) {
 			this.status = status;
 		}
 
