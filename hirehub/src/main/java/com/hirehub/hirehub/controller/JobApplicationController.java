@@ -49,5 +49,10 @@ public class JobApplicationController {
 	public ResponseEntity<JobApplication> updateApplicationStatus(@PathVariable long applicationId,@RequestBody ApplicationStatusDto dto){
 		return ResponseEntity.ok(jobApplicationService.updateStatus(applicationId,dto));
 	}
+	
+	@PutMapping("/withdraw/{applicationId}")
+	public ResponseEntity<JobApplication> withdrawApplication(@PathVariable long applicationId,@RequestBody ApplicationStatusDto dto){
+		return ResponseEntity.ok(jobApplicationService.updateStatus(applicationId,dto));
+	}
 } 
 
